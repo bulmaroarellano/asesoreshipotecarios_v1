@@ -32,35 +32,19 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                            @can('view-any', App\Models\Applicant::class)
+                            @can('view-any', App\Models\Pedidos::class)
                             <li class="nav-item">
-                                <a href="{{ route('applicants.index') }}" class="nav-link">
+                                <a href="{{ route('all-pedidos.index') }}" class="nav-link">
                                     <i class="nav-icon icon ion-md-radio-button-off"></i>
-                                    <p>Applicants</p>
+                                    <p>Pedidos</p>
                                 </a>
                             </li>
                             @endcan
-                            @can('view-any', App\Models\Income::class)
+                            @can('view-any', App\Models\Solicitante::class)
                             <li class="nav-item">
-                                <a href="{{ route('incomes.index') }}" class="nav-link">
+                                <a href="{{ route('solicitantes.index') }}" class="nav-link">
                                     <i class="nav-icon icon ion-md-radio-button-off"></i>
-                                    <p>Incomes</p>
-                                </a>
-                            </li>
-                            @endcan
-                            @can('view-any', App\Models\User::class)
-                            <li class="nav-item">
-                                <a href="{{ route('users.index') }}" class="nav-link">
-                                    <i class="nav-icon icon ion-md-radio-button-off"></i>
-                                    <p>Users</p>
-                                </a>
-                            </li>
-                            @endcan
-                            @can('view-any', App\Models\Order::class)
-                            <li class="nav-item">
-                                <a href="{{ route('orders.index') }}" class="nav-link">
-                                    <i class="nav-icon icon ion-md-radio-button-off"></i>
-                                    <p>Orders</p>
+                                    <p>Solicitantes</p>
                                 </a>
                             </li>
                             @endcan

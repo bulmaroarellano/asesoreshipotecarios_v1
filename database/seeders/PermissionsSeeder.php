@@ -15,23 +15,23 @@ class PermissionsSeeder extends Seeder
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
         // Create default permissions
-        Permission::create(['name' => 'list applicants']);
-        Permission::create(['name' => 'view applicants']);
-        Permission::create(['name' => 'create applicants']);
-        Permission::create(['name' => 'update applicants']);
-        Permission::create(['name' => 'delete applicants']);
+        Permission::create(['name' => 'list ingresos']);
+        Permission::create(['name' => 'view ingresos']);
+        Permission::create(['name' => 'create ingresos']);
+        Permission::create(['name' => 'update ingresos']);
+        Permission::create(['name' => 'delete ingresos']);
 
-        Permission::create(['name' => 'list incomes']);
-        Permission::create(['name' => 'view incomes']);
-        Permission::create(['name' => 'create incomes']);
-        Permission::create(['name' => 'update incomes']);
-        Permission::create(['name' => 'delete incomes']);
+        Permission::create(['name' => 'list allpedidos']);
+        Permission::create(['name' => 'view allpedidos']);
+        Permission::create(['name' => 'create allpedidos']);
+        Permission::create(['name' => 'update allpedidos']);
+        Permission::create(['name' => 'delete allpedidos']);
 
-        Permission::create(['name' => 'list orders']);
-        Permission::create(['name' => 'view orders']);
-        Permission::create(['name' => 'create orders']);
-        Permission::create(['name' => 'update orders']);
-        Permission::create(['name' => 'delete orders']);
+        Permission::create(['name' => 'list solicitantes']);
+        Permission::create(['name' => 'view solicitantes']);
+        Permission::create(['name' => 'create solicitantes']);
+        Permission::create(['name' => 'update solicitantes']);
+        Permission::create(['name' => 'delete solicitantes']);
 
         // Create user role and assign existing permissions
         $currentPermissions = Permission::all();
