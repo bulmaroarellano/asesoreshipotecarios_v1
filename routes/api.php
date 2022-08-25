@@ -2,14 +2,14 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\RoleController;
-use App\Http\Controllers\Api\OrderController;
-use App\Http\Controllers\Api\IncomeController;
-use App\Http\Controllers\Api\ApplicantController;
+use App\Http\Controllers\Api\PedidosController;
+use App\Http\Controllers\Api\IngresoController;
 use App\Http\Controllers\Api\PermissionController;
-use App\Http\Controllers\Api\ApplicantOrdersController;
-use App\Http\Controllers\Api\ApplicantIncomesController;
+use App\Http\Controllers\Api\SolicitanteController;
+use App\Http\Controllers\Api\SolicitanteIngresosController;
+use App\Http\Controllers\Api\SolicitanteAllPedidosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,93 +22,41 @@ use App\Http\Controllers\Api\ApplicantIncomesController;
 |
 */
 
-Route::name('api.')->group(function () {
-    Route::apiResource('roles', RoleController::class);
-    Route::apiResource('permissions', PermissionController::class);
+Route::post('/login', [AuthController::class, 'login'])->name('api.login');
 
-    Route::get('/applicants', [ApplicantController::class, 'index'])->name(
-        'applicants.index'
-    );
-    Route::post('/applicants', [ApplicantController::class, 'store'])->name(
-        'applicants.store'
-    );
-    Route::get('/applicants/{applicant}', [
-        ApplicantController::class,
-        'show',
-    ])->name('applicants.show');
-    Route::put('/applicants/{applicant}', [
-        ApplicantController::class,
-        'update',
-    ])->name('applicants.update');
-    Route::delete('/applicants/{applicant}', [
-        ApplicantController::class,
-        'destroy',
-    ])->name('applicants.destroy');
+Route::middleware('auth:sanctum')
+    ->get('/user', function (Request $request) {
+        return $request->user();
+    })
+    ->name('api.user');
 
-    // Applicant Incomes
-    Route::get('/applicants/{applicant}/incomes', [
-        ApplicantIncomesController::class,
-        'index',
-    ])->name('applicants.incomes.index');
-    Route::post('/applicants/{applicant}/incomes', [
-        ApplicantIncomesController::class,
-        'store',
-    ])->name('applicants.incomes.store');
+Route::name('api.')
+    ->middleware('auth:sanctum')
+    ->group(function () {
+        Route::apiResource('roles', RoleController::class);
+        Route::apiResource('permissions', PermissionController::class);
 
-    // Applicant Orders
-    Route::get('/applicants/{applicant}/orders', [
-        ApplicantOrdersController::class,
-        'index',
-    ])->name('applicants.orders.index');
-    Route::post('/applicants/{applicant}/orders', [
-        ApplicantOrdersController::class,
-        'store',
-    ])->name('applicants.orders.store');
+        Route::apiResource('all-orders', PedidosController::class);
 
-    Route::get('/incomes', [IncomeController::class, 'index'])->name(
-        'incomes.index'
-    );
-    Route::post('/incomes', [IncomeController::class, 'store'])->name(
-        'incomes.store'
-    );
-    Route::get('/incomes/{income}', [IncomeController::class, 'show'])->name(
-        'incomes.show'
-    );
-    Route::put('/incomes/{income}', [IncomeController::class, 'update'])->name(
-        'incomes.update'
-    );
-    Route::delete('/incomes/{income}', [
-        IncomeController::class,
-        'destroy',
-    ])->name('incomes.destroy');
+        Route::apiResource('solicitantes', SolicitanteController::class);
 
-    Route::get('/users', [UserController::class, 'index'])->name('users.index');
-    Route::post('/users', [UserController::class, 'store'])->name(
-        'users.store'
-    );
-    Route::get('/users/{user}', [UserController::class, 'show'])->name(
-        'users.show'
-    );
-    Route::put('/users/{user}', [UserController::class, 'update'])->name(
-        'users.update'
-    );
-    Route::delete('/users/{user}', [UserController::class, 'destroy'])->name(
-        'users.destroy'
-    );
+        // Solicitante Incomes
+        Route::get('/solicitantes/{solicitante}/ingresos', [
+            SolicitanteIngresosController::class,
+            'index',
+        ])->name('solicitantes.ingresos.index');
+        Route::post('/solicitantes/{solicitante}/ingresos', [
+            SolicitanteIngresosController::class,
+            'store',
+        ])->name('solicitantes.ingresos.store');
 
-    Route::get('/orders', [OrderController::class, 'index'])->name(
-        'orders.index'
-    );
-    Route::post('/orders', [OrderController::class, 'store'])->name(
-        'orders.store'
-    );
-    Route::get('/orders/{order}', [OrderController::class, 'show'])->name(
-        'orders.show'
-    );
-    Route::put('/orders/{order}', [OrderController::class, 'update'])->name(
-        'orders.update'
-    );
-    Route::delete('/orders/{order}', [OrderController::class, 'destroy'])->name(
-        'orders.destroy'
-    );
-});
+        // Solicitante Transactions
+        Route::get('/solicitantes/{solicitante}/all-pedidos', [
+            SolicitanteAllPedidosController::class,
+            'index',
+        ])->name('solicitantes.all-pedidos.index');
+        Route::post('/solicitantes/{solicitante}/all-pedidos', [
+            SolicitanteAllPedidosController::class,
+            'store',
+        ])->name('solicitantes.all-pedidos.store');
+    });
