@@ -22,13 +22,44 @@ return [
         'removed' => 'Successfully removed',
     ],
 
-    'applicants' => [
-        'name' => 'Applicants',
-        'index_title' => 'Applicants List',
-        'new_title' => 'New Applicant',
-        'create_title' => 'Create Applicant',
-        'edit_title' => 'Edit Applicant',
-        'show_title' => 'Show Applicant',
+    '' => [
+        'name' => '',
+        'index_title' => 'AllPedidos List',
+        'new_title' => 'New Pedidos',
+        'create_title' => 'Create Pedidos',
+        'edit_title' => 'Edit Pedidos',
+        'show_title' => 'Show Pedidos',
+        'inputs' => [
+            'folio' => 'Folio',
+            'destino' => 'Destino',
+            'monto_solicitado' => 'Monto Solicitado',
+            'plazo' => 'Plazo',
+        ],
+    ],
+
+    'pedidos' => [
+        'name' => 'Pedidos',
+        'index_title' => ' List',
+        'new_title' => 'Nuevo pedido',
+        'create_title' => 'Registrar Pedido',
+        'edit_title' => 'Editar',
+        'show_title' => 'Mostrar',
+        'inputs' => [
+            'folio' => 'Folio',
+            'destino' => 'Destino',
+            'monto_solicitado' => 'Monto Solicitado',
+            'plazo' => 'Plazo',
+            'applicant_id' => 'Solicitante',
+        ],
+    ],
+
+    'solicitantes' => [
+        'name' => 'Solicitantes',
+        'index_title' => 'Registros',
+        'new_title' => 'Nuevo',
+        'create_title' => 'Registrar nuevo',
+        'edit_title' => 'Editar',
+        'show_title' => 'Ver mas',
         'inputs' => [
             'nombre' => 'Nombre',
             'apellidos' => 'Apellidos',
@@ -40,60 +71,13 @@ return [
         ],
     ],
 
-    'incomes' => [
-        'name' => 'Incomes',
-        'index_title' => 'Incomes List',
-        'new_title' => 'New Income',
-        'create_title' => 'Create Income',
-        'edit_title' => 'Edit Income',
-        'show_title' => 'Show Income',
-        'inputs' => [
-            'empresa' => 'Empresa',
-            'comprobante_ingresos' => 'Comprobante Ingresos',
-            'salario_bruto' => 'Salario Bruto',
-            'salario_neto' => 'Salario Neto',
-            'tipo_empleo' => 'Tipo Empleo',
-            'fecha_contratacion' => 'Fecha Contratacion',
-            'applicant_id' => 'Applicant',
-        ],
-    ],
-
-    'users' => [
-        'name' => 'Users',
-        'index_title' => 'Users List',
-        'new_title' => 'New User',
-        'create_title' => 'Create User',
-        'edit_title' => 'Edit User',
-        'show_title' => 'Show User',
-        'inputs' => [
-            'name' => 'Name',
-            'email' => 'Email',
-            'password' => 'Password',
-        ],
-    ],
-
-    'orders' => [
-        'name' => 'Orders',
-        'index_title' => 'Pedidos realizados',
-        'new_title' => 'Nuevo pedido',
-        'create_title' => 'Generar nuevo',
-        'edit_title' => 'Editar pedido',
-        'show_title' => 'Ver detalles',
-        'inputs' => [
-            'folio' => 'Folio',
-            'destino' => 'Destino',
-            'monto_solicitado' => 'Monto Solicitado',
-            'plazo' => 'Plazo',
-        ],
-    ],
-
     'ingresos' => [
         'name' => 'Ingresos',
-        'index_title' => 'Ingresos',
-        'new_title' => 'Nuevo Ingreso',
-        'create_title' => 'Registrar nuevo ingreso',
-        'edit_title' => 'Editar ingreso',
-        'show_title' => 'Detalles',
+        'index_title' => 'Ingresos List',
+        'new_title' => 'New Ingreso',
+        'create_title' => 'Create Ingreso',
+        'edit_title' => 'Edit Ingreso',
+        'show_title' => 'Show Ingreso',
         'inputs' => [
             'empresa' => 'Empresa',
             'comprobante_ingresos' => 'Comprobante Ingresos',
@@ -101,21 +85,6 @@ return [
             'salario_neto' => 'Salario Neto',
             'tipo_empleo' => 'Tipo Empleo',
             'fecha_contratacion' => 'Fecha Contratacion',
-        ],
-    ],
-
-    'applicant_orders' => [
-        'name' => 'Applicant Orders',
-        'index_title' => 'Orders List',
-        'new_title' => 'New Order',
-        'create_title' => 'Create Order',
-        'edit_title' => 'Edit Order',
-        'show_title' => 'Show Order',
-        'inputs' => [
-            'folio' => 'Folio',
-            'destino' => 'Destino',
-            'monto_solicitado' => 'Monto Solicitado',
-            'plazo' => 'Plazo',
         ],
     ],
 

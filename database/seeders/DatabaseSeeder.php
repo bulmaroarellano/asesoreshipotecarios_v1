@@ -22,9 +22,9 @@ class DatabaseSeeder extends Seeder
             ]);
         $this->call(PermissionsSeeder::class);
 
-        $this->call(ApplicantSeeder::class);
-        $this->call(IncomeSeeder::class);
-        $this->call(OrderSeeder::class);
+        $this->call(IngresoSeeder::class);
+        $this->call(PedidosSeeder::class);
+        $this->call(SolicitanteSeeder::class);
         $this->call(UserSeeder::class);
     }
 }
